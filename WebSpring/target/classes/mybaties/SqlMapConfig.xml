@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 和spring整合后 environments配置将废除 -->
+   <!-- <properties resource="db.properties">
+        &lt;!&ndash;<property name="" value=""/>&ndash;&gt;
+    </properties>-->
+    <settings>
+        <!--新的spring和Mybatis整合，日志要加上这句话-->
+        <setting name="logImpl" value="log4j"/>
+    </settings>
+
+    <!--<typeAliases>
+        <package name="com.lx.entry"/>
+    </typeAliases>
+-->
+
+   <!-- <mappers>
+        &lt;!&ndash;<mapper resource="AdminMapper.xml"></mapper>
+        <mapper resource="VideoMapper.xml"></mapper>
+        <mapper resource="SpeakerMapper.xml"></mapper>&ndash;&gt;
+        <package name="com.lx.dao"/>
+    </mappers>-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+</configuration>
